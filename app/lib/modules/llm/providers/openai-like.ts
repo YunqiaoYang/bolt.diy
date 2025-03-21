@@ -12,7 +12,14 @@ export default class OpenAILikeProvider extends BaseProvider {
     apiTokenKey: 'OPENAI_LIKE_API_KEY',
   };
 
-  staticModels: ModelInfo[] = [];
+  staticModels: ModelInfo[] = [
+    {
+    name: '/mnt/cache/sharemath/models/qwen/Qwen2.5-Coder-32B-Instruct',
+    label: 'Qwen2.5-Coder-32B-Instruct',
+    provider: 'OpenAILike',
+    maxTokenAllowed: 8000,
+  },
+] ;
 
   async getDynamicModels(
     apiKeys?: Record<string, string>,
