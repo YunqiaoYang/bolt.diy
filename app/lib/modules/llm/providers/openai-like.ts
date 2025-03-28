@@ -12,7 +12,32 @@ export default class OpenAILikeProvider extends BaseProvider {
     apiTokenKey: 'OPENAI_LIKE_API_KEY',
   };
 
-  staticModels: ModelInfo[] = [];
+  staticModels: ModelInfo[] = [
+    {
+      name: 'deepseek-chat',
+      label: 'deepseek-chat',
+      provider: 'OpenAILike',
+      maxTokenAllowed: 32768,
+    },
+    {
+      name: 'gpt-4.5-preview',
+      label: 'gpt-4.5-preview',
+      provider: 'OpenAILike',
+      maxTokenAllowed: 8000,
+    },
+    {
+      name: 'claude-3-5-sonnet-20240620',
+      label: 'claude-3-5-sonnet-20240620',
+      provider: 'OpenAILike',
+      maxTokenAllowed: 8000,
+    },
+    {
+      name: 'claude-3-5-sonnet-20241022',
+      label: 'claude-3-5-sonnet-20241022',
+      provider: 'OpenAILike',
+      maxTokenAllowed: 8000,
+    },
+  ];
 
   async getDynamicModels(
     apiKeys?: Record<string, string>,

@@ -1,5 +1,7 @@
 import { getSystemPrompt } from './prompts/prompts';
 import optimized from './prompts/optimized';
+import { getdevPrompt } from './prompts/devprompts';
+import { getfollowingPrompt } from './prompts/instruction-following';
 
 export interface PromptOptions {
   cwd: string;
@@ -25,6 +27,16 @@ export class PromptLibrary {
       label: 'Optimized Prompt (experimental)',
       description: 'an Experimental version of the prompt for lower token usage',
       get: (options) => optimized(options),
+    },
+    dev: {
+      label: 'Complete-check Prompt ',
+      description: 'dev prompt for completeness checking',
+      get: (options) => getdevPrompt(options.cwd),
+    },
+    dev2: {
+      label: 'following Prompt ',
+      description: 'dev prompt for completeness checking',
+      get: (options) => getfollowingPrompt(options.cwd),
     },
   };
   static getList() {
